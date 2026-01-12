@@ -93,4 +93,14 @@ service / on new http:Listener(9091) {
         }
         return http:NO_CONTENT;
     }
+
+    # Test the meeting service
+    # + return - status message indicating the service is running
+    resource function get meetings/test() returns http:Response {
+        
+        http:Response res = new;
+        res.statusCode = 200;
+        res.setTextPayload("Meeting service is up and running!");
+        return res;
+    }
 }

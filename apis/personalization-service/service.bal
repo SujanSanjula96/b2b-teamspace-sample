@@ -51,4 +51,14 @@ service / on new http:Listener(9093) {
         }
         return http:NO_CONTENT;
     }
+
+    # Test the personalization service
+    # + return - status message indicating the service is running
+    resource function get personalization/test() returns http:Response {
+        
+        http:Response res = new;
+        res.statusCode = 200;
+        res.setTextPayload("Personalization service is up and running!");
+        return res;
+    }
 }
