@@ -66,7 +66,11 @@ http://localhost:3002
 
 4. Click the Sign-In button.
 
+<img width="1223" height="893" alt="Screenshot 2026-01-12 at 19 16 48" src="https://github.com/user-attachments/assets/98ae73e3-2d23-4fc6-842a-e85795f0bf34" />
+
 You will see an error page as follows from Asgardeo. This is expected at this stage and will be resolved once the application is fully configured.
+
+<img width="538" height="636" alt="Screenshot 2026-01-12 at 19 16 21" src="https://github.com/user-attachments/assets/4f1c376a-838a-4cdc-83a1-86db5f3fe9e0" />
 
 ## Test the Ballerina APIs
 
