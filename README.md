@@ -27,7 +27,7 @@ Before you start, ensure you have the following:
 - Asgardeo account
 - Node.js v18+ and npm
 - A favorite text editor or IDE
-- Install Ballerina 2201.5.0 [Download Ballerina](https://ballerina.io/downloads/)
+- Install Ballerina 2201.13.1 [Download Ballerina](https://ballerina.io/downloads/)
 
 ## Deploy API Services
 
@@ -239,60 +239,6 @@ Additionally, define the following three application roles for the TeamSpace app
 4. Under that enable "Share a subset of roles with all organizations" option.
 5. Select "teamspace-admin" and "teamspace-user" roles.
 6. Click "save".
-
-## Configure the AI Agent Chat Service
-
-### Configure the Application
-1. Navigate to your application in the Asgardeo console.
-2. Click on the "Advanced" tab.
-3. Under the "App-Native Authentication" section, tick the "Enable app-native authentication API" and click "Update".
-4. Navigate to the "Protocol" tab.
-5. Add `http://localhost:8000/callback` as a "Authorized Redirect URL" and click "Update".
-
-### Create AI Agent
-1. Navigate to the AI Agent section in the Asgardeo console.
-2. Click on "New Agent".
-3. Provide the following details:
-
-    - **Name:** Teamspace Agent
-    - **Description:** AI Agent for Teamspace
-4. Click "Create".
-5. Once the agent is created, note the "Agent ID" and the "Agent Secret".
-
-### Set up the Environment Variables
-Navigate to <PROJECT_HOME>/b2b/agent and create a `.env` file with the following content:
-
-```env
-CLIENT_ID=RyMYzYWKP6O4gUWDu6hTnxNmNmEa
-CLIENT_SECRET={CLIENT_SECRET}
-TOKEN_URL=https://api.asgardeo.io/t/{ORG_NAME}/oauth2/token
-AUTHORIZE_URL=https://api.asgardeo.io/t/{ORG_NAME}/oauth2/authorize
-AUTHN_URL=https://api.asgardeo.io/t/{ORG_NAME}/oauth2/authn
-REDIRECT_URI=http://localhost:8000/callback
-WEBSITE_URL=http://localhost:3002
-AZURE_API_BASE={AZURE_API_BASE}
-AZURE_OPENAI_API_KEY={AZURE_OPENAI_API_KEY}
-AGENT_ID={AGENT_ID}
-AGENT_NAME={AGENT_ID}
-AGENT_SECRE{AGENT_SECRET}
-```
-
-### Running API
-
-1. Create a virtual environment (recommended):
-   ```bash
-   python3.10 -m venv .venv
-   source .venv/bin/activate
-   ```
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Ensure you are using Python 3.10 or newer.
-4. Run the server:
-   ```bash
-   uvicorn main:app --reload
-   ```
 
 ## Configure Next.js app
 

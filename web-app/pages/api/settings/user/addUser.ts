@@ -46,6 +46,7 @@ export default async function addUser(req, res) {
   const userstoreDomain = getConfig().BusinessAdminAppConfig.ManagementAPIConfig.UserStore;
 
   try {
+    user.userName = `${userstoreDomain}/${user.userName}`;
     const fetchData = await fetch(
       `${getOrgUrl(orgId)}/scim2/Users`,
       session
@@ -60,12 +61,14 @@ export default async function addUser(req, res) {
               emails: user.emails,
               name: user.name,
               password: user.password,
-              userName: `${userstoreDomain}/${user.userName}`,
+              userName: user.userName,
             }),
           }
     );
 
     const data = await fetchData.json();
+
+    console.log("Add User API Response Data:", data);
 
     if (!fetchData.ok) {
       return res.status(fetchData.status).json(data);
